@@ -10,9 +10,4 @@ export const createClaim = async (req: Request, res: Response) => {
   const { userId, amount } = req.body;
   const newClaim = await addClaim({ userId, amount });
   res.status(201).json(newClaim);
-  // try {
-    
-  // } catch (error) {
-  //   res.status(500).json({ error: 'Failed to create claim' });
-  // }
 };

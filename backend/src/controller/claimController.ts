@@ -1,13 +1,22 @@
-import { Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
+import { validateRequestDto } from '../common/middleware/validateRequestDto';
 import * as claimService from '../service/claimService';
+import { ClaimCreateDtoSchema } from '../common/validation/dtoSchemas';
 
-export const getAllClaims = async (req: Request, res: Response) => {
-  const claims = await claimService.getClaims();
-  res.status(200).json(claims);
-};
+const router = Router();
 
-export const createClaim = async (req: Request, res: Response) => {
-  const { userId, amount } = req.body;
-  const newClaim = await claimService.createClaim({ userId, amount });
-  res.status(201).json(newClaim);
-};
+router.post('/',
+  validateRequestDto(ClaimCreateDtoSchema), // Middleware to validate the request
+  async (req: Request, res: Response) => {
+    const createdClaim = await claimService.createClaim(req.body);
+    res.status(201).json(createdClaim);
+  }
+);
+
+router.get('/', 
+  async (_req: Request, res: Response) => {
+    const claims = await claimService.getAllClaims();
+    res.json(claims);
+});
+
+export default router;

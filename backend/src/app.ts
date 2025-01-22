@@ -1,11 +1,11 @@
 import express from 'express';
 import { ENV } from './config/env';
-import claimRouter from './router/claimRouter';
+import claimController from './controller/claimController';
 
 const app = express();
 
 app.use(express.json());
-app.use('/claims', claimRouter);
+app.use('/claims', claimController);
 
 app.listen(ENV.PORT, () => {
   console.log(`Server is running on http://localhost:${ENV.PORT}`);

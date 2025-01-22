@@ -24,9 +24,9 @@ model Claim {
   userId          String
   amount          Float
   transactionDate DateTime
-  description     String
+  description     String?
   status          ClaimStatus @default(PENDING)
-  receiptPath     String // File path for the receipt
+  receiptPath     String? // File path for the receipt
   subcategoryId   String // Subcategory for finer granularity
   rejectionReason String? // Reason for rejection if applicable
   createdAt       DateTime?   @default(now())

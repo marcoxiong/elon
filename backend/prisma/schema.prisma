@@ -13,17 +13,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum ClaimStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
 model Claim {
-  id              String    @id @default(uuid())
+  id              String      @id @default(uuid())
   userId          String
   amount          Float
   transactionDate DateTime
   description     String
-  status          String?   @default("PENDING") // APPROVED, REJECTED, etc.
+  status          ClaimStatus @default(PENDING)
   receiptPath     String // File path for the receipt
-  categoryId      String // Category of the claim (e.g., Travel, Medical, etc.)
   subcategoryId   String // Subcategory for finer granularity
   rejectionReason String? // Reason for rejection if applicable
-  createdAt       DateTime? @default(now())
-  updatedAt       DateTime? @updatedAt
+  createdAt       DateTime?   @default(now())
+  updatedAt       DateTime?   @updatedAt
 }

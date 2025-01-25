@@ -1,11 +1,11 @@
 import { Request, Response, Router } from 'express';
 import { validateRequestDto } from '../common/middleware/validateRequestDto';
-import * as claimService from '../service/claimService';
+import { claimService } from '../service/claimService';
 import { ClaimCreateDtoSchema } from '../common/validation/dtoSchemas';
 
-const router = Router();
+const claimController = Router();
 
-router.post('/',
+claimController.post('/',
   validateRequestDto(ClaimCreateDtoSchema), // Middleware to validate the request
   async (req: Request, res: Response) => {
     const createdClaim = await claimService.createClaim(req.body);
@@ -13,10 +13,10 @@ router.post('/',
   }
 );
 
-router.get('/', 
+claimController.get('/', 
   async (_req: Request, res: Response) => {
     const claims = await claimService.getAllClaims();
     res.json(claims);
 });
 
-export default router;
+export default claimController;

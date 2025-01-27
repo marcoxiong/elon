@@ -47,10 +47,8 @@ const fileFilter: multer.Options['fileFilter'] = (_req, file, cb) => {
   }
 };
 
-const save = multer({
+export const storeFileUpload = multer({
   storage: createStorageEngine(),
   fileFilter,
   limits: { fileSize: FILE_SIZE_LIMIT },
 });
-
-export const storageService = { save };

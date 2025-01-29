@@ -4,12 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const FILE_SIZE_LIMIT = 5 * 1024 * 1024; // 5MB
-const FILE_ALLOW_TYPES = [
-  'image/jpeg',
-  'image/png',
-  'application/pdf',
-  'multipart/form-data',
-];
+const FILE_ALLOW_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

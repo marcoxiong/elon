@@ -4,8 +4,8 @@ import { storeFileUpload } from '../common/middleware/storeFileUpload';
 const fileUploadController = Router();
 
 fileUploadController.post(
-  '/upload',
-  storeFileUpload.single('receipt'),
+  '/',
+  storeFileUpload.single('file'),
   async (req: Request, res: Response) => {
     // Multer attaches the file data to req.file
     if (!req.file) {

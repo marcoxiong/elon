@@ -1,7 +1,6 @@
 {
-  "name": "backend",
+  "name": "elon-backend",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
@@ -10,7 +9,7 @@
     "format:check": "prettier --check \"src/**/*.{js,ts,json,md}\""
   },
   "keywords": [],
-  "author": "",
+  "author": "marcoxiong",
   "license": "ISC",
   "type": "module",
   "description": "",
@@ -34,6 +33,7 @@
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2"
   }
 }

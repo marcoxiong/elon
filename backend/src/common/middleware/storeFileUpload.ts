@@ -1,9 +1,26 @@
 import fs from 'fs';
 import multer, { StorageEngine } from 'multer';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const FILE_SIZE_LIMIT = 5 * 1024 * 1024; // 5MB
-const FILE_ALLOW_TYPES = ['image/jpeg', 'image/png', 'application/pdf'];
+const FILE_ALLOW_TYPES = [
+  'image/jpeg',
+  'image/png',
+  'application/pdf',
+  'multipart/form-data',
+];
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// This is a standard way to get the current module's URL in ES modules.
+// It returns a file:// URL, which is why we need to convert it to a file path.
+// fileURLToPath:
+
+// Converts the file:// URL from import.meta.url to an absolute file path.
+// path.dirname:
+
+// Extracts the directory name from the file path, replicating the behavior of __dirname.
 
 const getStorageDest = (): string => {
   const rootDir = path.resolve(__dirname, '../../..'); // Project root
@@ -13,7 +30,7 @@ const getStorageDest = (): string => {
     case 'staging':
       throw new Error('Staging storage not implemented yet');
     default:
-      return path.join(rootDir, 'backend', 'uploads'); // Local storage for dev
+      return path.join(rootDir, 'uploads'); // Local storage for dev
   }
 };
 

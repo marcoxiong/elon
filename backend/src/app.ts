@@ -1,7 +1,7 @@
 import express from 'express';
-import { ENV } from './config/env';
-import claimController from './controller/claimController';
-import fileUploadController from './controller/fileUploadController';
+import { ENV } from './configs/env';
+import claimController from './controllers/claimController';
+import fileUploadController from './controllers/fileUploadController';
 
 const app = express();
 

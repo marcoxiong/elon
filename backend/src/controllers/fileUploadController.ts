@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { storeFileUpload } from '../common/middleware/storeFileUpload';
+import { storeFileUpload } from '../common/middlewares/storeFileUpload';
 
 const fileUploadController = Router();
 

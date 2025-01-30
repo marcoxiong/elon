@@ -1,8 +1,8 @@
 import { Request, Response, Router } from 'express';
-import { storeFileUpload } from '../common/middleware/storeFileUpload';
-import { validateRequestDto } from '../common/middleware/validateRequestDto';
+import { storeFileUpload } from '../common/middlewares/storeFileUpload';
+import { validateRequestDto } from '../common/middlewares/validateRequestDto';
 import { ClaimCreateDtoSchema } from '../common/validation/dtoSchemas';
-import { claimService } from '../service/claimService';
+import { claimService } from '../services/claimService';
 
 const claimController = Router();
 

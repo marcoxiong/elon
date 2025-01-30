@@ -1,5 +1,5 @@
 import { ClaimCreateDto } from '../common/validation/dtoSchemas';
-import prisma from '../config/prisma';
+import prisma from '../infra/prisma';
 
 const getAllClaims = async () => {
   return await prisma.claim.findMany();

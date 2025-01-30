@@ -5,12 +5,12 @@ const getAllClaims = async () => {
   return await prisma.claim.findMany();
 };
 
-const createClaim = async (claimData: ClaimCreateDto) => {
+const createClaim = async (claimCreateDto: ClaimCreateDto) => {
   return prisma.claim.create({
     data: {
-      ...claimData,
-      amount: parseFloat(claimData.amount), // Ensure proper number handling
-      transactionDate: new Date(claimData.transactionDate), // Ensure proper date handling
+      ...claimCreateDto,
+      amount: parseFloat(claimCreateDto.amount),
+      transactionDate: new Date(claimCreateDto.transactionDate),
     },
   });
 };

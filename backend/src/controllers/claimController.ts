@@ -3,6 +3,7 @@ import { storeFileUpload } from '../common/middlewares/storeFileUpload';
 import { validateRequestDto } from '../common/middlewares/validateRequestDto';
 import { ClaimCreateDtoSchema } from '../common/validation/dtoSchemas';
 import { claimService } from '../services/claimService';
+import { ocrService } from '../services/ocrService';
 
 const claimController = Router();
 
@@ -22,11 +23,13 @@ claimController.post(
       return;
     }
 
+    // const { userId, amount, transactionDate, subcategoryId, description } = req.body;
+    const fileText = await ocrService.extract(req.file.path);
     const createdClaim = await claimService.createClaim({
       ...req.body,
       filePath,
     });
-    res.status(201).json(createdClaim);
+    res.status(201).json({ claim: createdClaim, ocrExtractedText: fileText });
   }
 );
 

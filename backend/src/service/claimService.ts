@@ -9,6 +9,7 @@ const createClaim = async (claimData: ClaimCreateDto) => {
   return prisma.claim.create({
     data: {
       ...claimData,
+      amount: parseFloat(claimData.amount), // Ensure proper number handling
       transactionDate: new Date(claimData.transactionDate), // Ensure proper date handling
     },
   });

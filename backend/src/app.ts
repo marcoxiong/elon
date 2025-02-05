@@ -1,5 +1,5 @@
 import express from 'express';
-import { ENV } from './configs/env';
+import ENV from './configs/env';
 import claimController from './controllers/claimController';
 import fileUploadController from './controllers/fileUploadController';
 

@@ -7,4 +7,6 @@ const extract = async (imagePath: string): Promise<string> => {
   return result.data.text;
 };
 
-export const ocrService = { extract };
+const ocrService = { extract };
+
+export default ocrService;

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import { ZodSchema } from 'zod';
 
-export const validateRequestDto =
+const validateRequestDto =
   (schema: ZodSchema) =>
   (req: Request, res: Response, next: NextFunction): void => {
     const result = schema.safeParse(req.body);
@@ -18,3 +18,5 @@ export const validateRequestDto =
     // Call the next middleware or route handler
     next();
   };
+
+export default validateRequestDto;

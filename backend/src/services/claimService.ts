@@ -15,7 +15,9 @@ const createClaim = async (claimCreateDto: ClaimCreateDto) => {
   });
 };
 
-export const claimService = {
+const claimService = {
   getAllClaims,
   createClaim,
 };
+
+export default claimService;

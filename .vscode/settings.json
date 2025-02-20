@@ -8,5 +8,34 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": "always", // Fix all fixable issues on save
     "source.organizeImports": "always" // Organize imports on save
-  }
+  },
+  "cSpell.words": [
+    "anyio",
+    "certifi",
+    "dateutil",
+    "exceptiongroup",
+    "fastapi",
+    "filelock",
+    "frozenlist",
+    "fsspec",
+    "idna",
+    "jsonschema",
+    "mpmath",
+    "msgpack",
+    "networkx",
+    "numpy",
+    "pyarrow",
+    "pydantic",
+    "pytesseract",
+    "pytz",
+    "reinit",
+    "rpds",
+    "sniffio",
+    "starlette",
+    "sympy",
+    "tensorboard",
+    "torchvision",
+    "tzdata",
+    "urllib"
+  ]
 }

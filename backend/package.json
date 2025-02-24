@@ -2,6 +2,7 @@
   "name": "elon-backend",
   "version": "1.0.0",
   "scripts": {
+    "start": "npx tsx src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src",
     "lint:fix": "eslint --fix --ext .js,.ts src/",
